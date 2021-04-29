@@ -47,6 +47,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     rootProject.ext.dependencies.localLib.each{
-        implementation project{it}
+        implementation project(it)
     }
 }
