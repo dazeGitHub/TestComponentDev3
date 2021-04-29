@@ -1,3 +1,4 @@
+include ':arouter'
 include ':base'
 include ':login'
 include ':member'
