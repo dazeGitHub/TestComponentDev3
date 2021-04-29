@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.toys.testcomponentdev"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //引入公共库
+    //implementation 'androidx.appcompat:appcompat:1.2.0', 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation rootProject.ext.dependencies.publicImplementation
+
+    //引入本地库 ( 因为是本地库所以需要使用 implementation project{it} )
+    rootProject.ext.dependencies.localLib.each{
+        implementation project{it}
+    }
+
+    implementation project(path: ':login')
+    implementation project(path: ':member')
+}
