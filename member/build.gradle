@@ -49,4 +49,6 @@ dependencies {
     rootProject.ext.dependencies.localLib.each{
         implementation project(it)
     }
+
+    annotationProcessor project(path : ':annotation_compiler')
 }

@@ -1,3 +1,5 @@
+include ':annotation_compiler'
+include ':annotation'
 include ':arouter'
 include ':base'
 include ':login'

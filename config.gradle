@@ -13,12 +13,13 @@ ext{
         publicImplementation : [
             'androidx.appcompat:appcompat:1.2.0',
             'androidx.constraintlayout:constraintlayout:2.0.4',
-            'androidx.core:core-ktx:1.3.2',
-            'org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version'
+//            'androidx.core:core-ktx:1.3.2',
+//            'org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version'
         ],
         localLib : [
             ":base",
-            ":arouter"
+            ":arouter",
+            ":annotation",
         ]
     ]
 }
