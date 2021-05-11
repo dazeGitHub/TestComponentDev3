@@ -1,3 +1,4 @@
+include ':common'
 include ':annotation_compiler'
 include ':annotation'
 include ':arouter'
