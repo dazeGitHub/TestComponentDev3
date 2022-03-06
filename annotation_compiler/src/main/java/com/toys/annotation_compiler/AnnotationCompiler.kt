@@ -35,7 +35,7 @@ class AnnotationCompiler : AbstractProcessor() {
 
         //Log 是运行时才能打印出来的，但是注解处理器是在编译时进行的，所以这里输出日志不能用 Log，用 System.out.println() 又比较 low
         messager = processingEnvironment.messager
-        messager?.printMessage(Diagnostic.Kind.WARNING, "AnnotationCompiler init finish") //Diagnostic : 诊断的
+        messager?.printMessage(Diagnostic.Kind.WARNING, "AnnotationCompiler init finish \n") //Diagnostic : 诊断的
     }
 
     //步骤一: 声明当前注解处理器要处理的注解有哪些 (String 类型的参数传的就是注解的包名 + 类名，即全类名)
@@ -56,7 +56,7 @@ class AnnotationCompiler : AbstractProcessor() {
      */
     override fun process(set: Set<TypeElement>, roundEnvironment: RoundEnvironment): Boolean { //roundEnvironment 表示 搜索引擎
         //目的: 去搜索当前模块用到了 BindPath 注解的类 (注解处理器的作用域只有当前模块)
-        messager!!.printMessage(Diagnostic.Kind.WARNING, "AnnotationCompiler process pre")
+        messager!!.printMessage(Diagnostic.Kind.WARNING, "AnnotationCompiler process pre \n")
 
         //Element ：类 (TypeElement)、成员变量 (VariableElement)、方法 (ExecutableElement)，就看注解 BindPath 放到了什么上面
         val elements = roundEnvironment.getElementsAnnotatedWith(
@@ -75,10 +75,10 @@ class AnnotationCompiler : AbstractProcessor() {
                 map[key] = "$activityName.class"
             }
         }
-        if (map.size > 0) { //如果有被注解的 Activity 类，才需要生成 ActivityUtil
+        if (map.isNotEmpty()) { //如果有被注解的 Activity 类，才需要生成 ActivityUtil
             generateActivityUtilFile(map)
         }
-        messager!!.printMessage(Diagnostic.Kind.WARNING, "AnnotationCompiler process finish")
+        messager!!.printMessage(Diagnostic.Kind.WARNING, "AnnotationCompiler process finish \n")
         return false
     }
 
@@ -101,7 +101,7 @@ class AnnotationCompiler : AbstractProcessor() {
             while (iterator.hasNext()) {
                 val key = iterator.next()
                 val activityName = annnKeyClassMap[key]
-                stringBuffer.append("ARouter.getInstance().addActivity(\"$key\", $activityName);")
+                stringBuffer.append("ARouter.getInstance().addActivity(\"$key\", $activityName);\n")
             }
             stringBuffer.append("}\n}")
             writer.write(stringBuffer.toString())
