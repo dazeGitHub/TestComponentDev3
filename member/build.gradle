@@ -3,6 +3,8 @@ if(rootProject.ext.android.is_application){
 }else{
     apply plugin: 'com.android.library'
 }
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -47,5 +49,7 @@ dependencies {
         implementation project(it)
     }
 
-    annotationProcessor project(path : ':annotation_compiler')
+    kapt project(path : ':annotation_compiler')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
