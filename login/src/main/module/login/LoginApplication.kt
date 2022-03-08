@@ -2,6 +2,7 @@ package login
 
 import android.app.Application
 import com.toys.base.BaseApplication
+import com.zyz.xrouter.XRouter
 
 /**
  * <pre>
@@ -14,6 +15,12 @@ import com.toys.base.BaseApplication
  */
 class LoginApplication : BaseApplication() {
     companion object{
-        var mTestVar = "hello"
+        var mLoginTestVar = "hello"
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        //通过反射获取工具类 ActivityUtil 然后去执行它们
+        XRouter.getInstance().init(this)
     }
 }

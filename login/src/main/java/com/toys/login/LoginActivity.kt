@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import com.toys.login.R
 import com.toys.common.LiveDataBus
 import com.zyz.annotation.BindPath
+import com.zyz.xrouter.XRouter
 
 /**
  * <pre>
@@ -47,8 +48,10 @@ class LoginActivity : BaseActivity() {
 
         //点击按钮时向 app 模块的 MainActivity 里的 LiveData 对象发送一个消息，每个观察者在接收时不管之前发送了多少消息，只会接收到发送的最后一条消息 (即 `Post Event From LoginActivity3`)
         //而且每个消息只会接收一次，即使再次调用 postValue() 发送的值是一样的，也不是同一个消息
-        appLiveDataObj!!.postValue("Post Event From LoginActivity1")
-        appLiveDataObj!!.postValue("Post Event From LoginActivity2")
-        appLiveDataObj!!.postValue("Post Event From LoginActivity3")
+//        appLiveDataObj!!.postValue("Post Event From LoginActivity1")
+//        appLiveDataObj!!.postValue("Post Event From LoginActivity2")
+//        appLiveDataObj!!.postValue("Post Event From LoginActivity3")
+
+        XRouter.getInstance().jumpActivity(this, "member/member", null);
     }
 }

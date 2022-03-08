@@ -94,7 +94,8 @@ class MainActivity : BaseActivity() {
     //    }
     fun jumpLoginActivity(view: View?) {
 //        liveData.postValue("testData2_postValue");
-        startActivity(Intent(this, XRouter.getInstance().getActivity("login/login")))
+//        startActivity(Intent(this, XRouter.getInstance().getActivity("login/login")))
+        XRouter.getInstance().jumpActivity(this, "login/login", null)
     }
 
     //该 GenericLifecycleObserver 接口可以在 Activity 生命周期发生变化时回调

@@ -6,14 +6,14 @@ ext{
             targetSdkVersion : 30,
             versionCode : 1,
             versionName : '1.0',
-            is_application : true,
+            is_application : false,
     ]
 
     dependencies = [
         publicImplementation : [
             'androidx.appcompat:appcompat:1.2.0',
             'androidx.constraintlayout:constraintlayout:2.0.4',
-            'com.github.dazeGitHub:XRouter:5.0'
+            'com.github.dazeGitHub:XRouter:5.0.2'
 //            'androidx.core:core-ktx:1.3.2',
 //            'org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version'
         ],
