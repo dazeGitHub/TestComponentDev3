@@ -1,23 +1,22 @@
-package com.toys.testcomponentdev3;
+package com.toys.testcomponentdev3
 
-import android.app.Application;
-
-import com.toys.arouter.ARouter;
+import android.app.Application
+import com.toys.base.BaseApplication
+import com.zyz.xrouter.XRouter
 
 /**
  * <pre>
- *     author : ZYZ
- *     e-mail : zyz163mail@163.com
- *     time   : 2021/04/30
- *     desc   :
- *     version: 1.0
- * </pre>
+ * author : ZYZ
+ * e-mail : zyz163mail@163.com
+ * time   : 2021/04/30
+ * desc   :
+ * version: 1.0
+</pre> *
  */
-public class MyApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
+class MyApplication : BaseApplication() {
+    override fun onCreate() {
+        super.onCreate()
         //通过反射获取工具类 ActivityUtil 然后去执行它们
-        ARouter.getInstance().init(this);
+        XRouter.getInstance().init(this)
     }
 }

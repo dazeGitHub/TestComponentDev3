@@ -1,19 +1,24 @@
-package com.toys.base;
+package com.toys.base
 
-import android.app.Application;
+import android.app.Application
 
 /**
  * <pre>
- *     author : ZYZ
- *     e-mail : zyz163mail@163.com
- *     time   : 2021/04/29
- *     desc   :
- *     version: 1.0
- * </pre>
+ * author : ZYZ
+ * e-mail : zyz163mail@163.com
+ * time   : 2021/04/29
+ * desc   :
+ * version: 1.0
+</pre> *
  */
-public class BaseApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
+open class BaseApplication : Application() {
+
+    //得到了在 config.gradle 中的 is_application 变量
+    companion object{
+        var is_application = BuildConfig.is_application
+    }
+
+    override fun onCreate() {
+        super.onCreate()
     }
 }

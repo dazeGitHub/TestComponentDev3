@@ -1,4 +1,4 @@
-package login
+package member
 
 import android.app.Application
 import com.toys.base.BaseApplication
@@ -12,8 +12,8 @@ import com.toys.base.BaseApplication
  * version: 1.0
 </pre> *
  */
-class LoginApplication : BaseApplication() {
+class MemberApplication : BaseApplication() {
     companion object{
-        var mTestVar = "hello"
+        var mMemberVar = "memeber"
     }
 }

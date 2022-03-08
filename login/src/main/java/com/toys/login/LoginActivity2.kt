@@ -1,32 +1,36 @@
-package com.toys.login;
+package com.toys.login
 
-import android.content.Intent;
-import android.os.Bundle;
-
-import com.toys.annotation.BindPath;
-import com.toys.arouter.ARouter;
-import com.toys.base.BaseActivity;
+import com.zyz.annotation.BindPath
+import com.toys.base.BaseActivity
+import android.os.Bundle
+import com.toys.login.R
+import android.content.Intent
+import com.toys.base.BaseApplication
+import com.zyz.xrouter.XRouter
+//import login.LoginApplication
 
 /**
  * <pre>
- *     author : ZYZ
- *     e-mail : zyz163mail@163.com
- *     time   : 2021/04/30
- *     desc   :
- *     version: 1.0
- * </pre>
+ * author : ZYZ
+ * e-mail : zyz163mail@163.com
+ * time   : 2021/04/30
+ * desc   :
+ * version: 1.0
+</pre> *
  */
 @BindPath(key = "login2/login2")
-public class LoginActivity2 extends BaseActivity {
+class LoginActivity2 : BaseActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        if(BaseApplication.is_application){
+//            LoginApplication.mTestVar     //这么干不行, 如果 login 模块不是 Application 的状态时, 就会找不到 LoginApplication 这个类
+        }
 
-        Class member = ARouter.getInstance().getActivity("member/member");
-        if(member != null){
-            startActivity(new Intent(this, member));
+        val member: Class<*>? = XRouter.getInstance().getActivity("member/member")
+        if (member != null) {
+            startActivity(Intent(this, member))
         }
     }
 }

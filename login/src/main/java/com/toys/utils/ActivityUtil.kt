@@ -1,23 +1,21 @@
-package com.toys.utils;
+package com.toys.utils
 
-import com.toys.arouter.ARouter;
-import com.toys.arouter.IRouter;
-import com.toys.login.LoginActivity;
+import com.toys.login.LoginActivity
+import com.zyz.xrouter.IRouter
+import com.zyz.xrouter.XRouter
 
 /**
  * <pre>
- *     author : ZYZ
- *     e-mail : zyz163mail@163.com
- *     time   : 2021/04/30
- *     desc   :
- *     version: 1.0
- * </pre>
+ * author : ZYZ
+ * e-mail : zyz163mail@163.com
+ * time   : 2021/04/30
+ * desc   :
+ * version: 1.0
+</pre> *
  */
-public class ActivityUtil implements IRouter {
-
-    @Override
-    public void addActivity() {
+class ActivityUtil : IRouter {
+    override fun addActivity() {
         //大公司的 key 命名是有规范的
-        ARouter.getInstance().addActivity("login/login", LoginActivity.class);
+        XRouter.getInstance().addActivity("login/login", LoginActivity::class.java)
     }
 }

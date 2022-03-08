@@ -31,7 +31,7 @@ android {
         main{
             if(rootProject.ext.android.is_application){
                 manifest.srcFile 'src/main/AndroidManifest.xml'
-//                java.srcDir 'src/main/module'
+                java.srcDir 'src/main/module'
             }else{
                 manifest.srcFile 'src/main/libmanifest/AndroidManifest.xml'
             }
@@ -42,13 +42,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation rootProject.ext.dependencies.publicImplementation
 
     rootProject.ext.dependencies.localLib.each{
         implementation project(it)
     }
 
-    kapt project(path : ':annotation_compiler')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    annotationProcessor 'com.github.dazeGitHub.XRouter:annotation_compiler:5.0'
+    kapt 'com.github.dazeGitHub.XRouter:annotation_compiler:5.0'
 }
 

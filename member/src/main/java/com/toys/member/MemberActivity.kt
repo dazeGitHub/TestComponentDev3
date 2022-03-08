@@ -1,9 +1,9 @@
 package com.toys.member
 
-import com.toys.annotation.BindPath
 import com.toys.base.BaseActivity
 import android.os.Bundle
 import com.toys.member.R
+import com.zyz.annotation.BindPath
 
 /**
  * <pre>

@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.7">
+    <bytecodeTargetLevel target="1.8">
       <module name="annotation" target="1.7" />
       <module name="annotation_compiler" target="1.7" />
-      <module name="test-component-dev3.app" target="1.8" />
       <module name="test-component-dev3.arouter" target="1.8" />
-      <module name="test-component-dev3.base" target="1.8" />
-      <module name="test-component-dev3.common" target="1.8" />
-      <module name="test-component-dev3.login" target="1.8" />
-      <module name="test-component-dev3.member" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
