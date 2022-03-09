@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
+import com.toys.common.Constants
 import com.toys.login.R
 import com.toys.common.LiveDataBus
 import com.zyz.annotation.BindPath
@@ -20,7 +21,7 @@ import com.zyz.xrouter.XRouter
  * version: 1.0
 </pre> *
  */
-@BindPath(key = "login/login")
+@BindPath(key = Constants.RouterPath.LOGIN)
 class LoginActivity : BaseActivity() {
     private var appLiveDataObj: BusMutableLiveData<String>? = null
 
