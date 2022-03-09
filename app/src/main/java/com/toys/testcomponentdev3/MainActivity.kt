@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.toys.base.BaseApplication
+import com.toys.common.Constants
 import com.toys.testcomponentdev3.R
 import com.toys.common.LiveDataBus
 import com.zyz.xrouter.XRouter
@@ -95,7 +96,8 @@ class MainActivity : BaseActivity() {
     fun jumpLoginActivity(view: View?) {
 //        liveData.postValue("testData2_postValue");
 //        startActivity(Intent(this, XRouter.getInstance().getActivity("login/login")))
-        XRouter.getInstance().jumpActivity(this, "login/login", null)
+//        XRouter.getInstance().jumpActivity(this, key = "login/login", bundle = null)
+        XRouter.getInstance().jumpActivity(this, url = Constants.RouterPath.LOGIN_TEST_PATH)
     }
 
     //该 GenericLifecycleObserver 接口可以在 Activity 生命周期发生变化时回调

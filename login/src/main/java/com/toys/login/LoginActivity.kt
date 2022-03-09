@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
-import com.toys.login.R
+import com.toys.common.Constants
 import com.toys.common.LiveDataBus
 import com.zyz.annotation.BindPath
 import com.zyz.xrouter.XRouter
@@ -20,13 +20,16 @@ import com.zyz.xrouter.XRouter
  * version: 1.0
 </pre> *
  */
-@BindPath(key = "login/login")
+@BindPath(key = Constants.RouterPath.LOGIN)
 class LoginActivity : BaseActivity() {
     private var appLiveDataObj: BusMutableLiveData<String>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+
+
         appLiveDataObj = LiveDataBus.instance.with("app", String::class.java)
 
         //模拟 intent，MainActivity 中发送 value，LoginActivity 中接收 value
@@ -52,6 +55,6 @@ class LoginActivity : BaseActivity() {
 //        appLiveDataObj!!.postValue("Post Event From LoginActivity2")
 //        appLiveDataObj!!.postValue("Post Event From LoginActivity3")
 
-        XRouter.getInstance().jumpActivity(this, "member/member", null);
+        XRouter.getInstance().jumpActivity(this, key = "member/member", bundle = null);
     }
 }

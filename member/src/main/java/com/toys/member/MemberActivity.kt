@@ -2,7 +2,7 @@ package com.toys.member
 
 import com.toys.base.BaseActivity
 import android.os.Bundle
-import com.toys.member.R
+import com.toys.common.Constants
 import com.zyz.annotation.BindPath
 
 /**
@@ -14,7 +14,7 @@ import com.zyz.annotation.BindPath
  * version: 1.0
 </pre> *
  */
-@BindPath(key = "member/member")
+@BindPath(key = Constants.RouterPath.MEMBER)
 class MemberActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

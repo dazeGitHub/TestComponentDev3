@@ -49,7 +49,7 @@ dependencies {
         implementation project(it)
     }
 
-    annotationProcessor 'com.github.dazeGitHub.XRouter:annotation_compiler:5.0.2'
-    kapt 'com.github.dazeGitHub.XRouter:annotation_compiler:5.0.2'
+    annotationProcessor 'com.github.dazeGitHub.XRouter:annotation_compiler:5.0.3'
+    kapt 'com.github.dazeGitHub.XRouter:annotation_compiler:5.0.3'
 }
 
