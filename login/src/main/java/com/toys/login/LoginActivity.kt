@@ -52,6 +52,6 @@ class LoginActivity : BaseActivity() {
 //        appLiveDataObj!!.postValue("Post Event From LoginActivity2")
 //        appLiveDataObj!!.postValue("Post Event From LoginActivity3")
 
-        XRouter.getInstance().jumpActivity(this, "member/member", null);
+        XRouter.getInstance().jumpActivity(this, "dm://member/member")
     }
 }
