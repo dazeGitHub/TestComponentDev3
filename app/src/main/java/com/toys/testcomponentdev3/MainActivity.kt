@@ -1,16 +1,15 @@
 package com.toys.testcomponentdev3
 
-import com.zyz.annotation.BindPath
 import com.toys.base.BaseActivity
 import androidx.lifecycle.MutableLiveData
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.toys.base.BaseApplication
-import com.toys.common.Constants
-import com.toys.testcomponentdev3.R
-import com.toys.common.LiveDataBus
+import com.toys.common.data.constant.Constants
+import com.toys.common.data.livedata.LiveDataBus
+import com.toys.common.utils.TLog
+import com.zyz.annotation.Route
 import com.zyz.xrouter.XRouter
 
 /**
@@ -22,7 +21,7 @@ import com.zyz.xrouter.XRouter
  * version: 1.0
 </pre> *
  */
-@BindPath(key = Constants.RouterPath.MAIN)
+@Route(key = Constants.RouterPath.MAIN)
 class MainActivity : BaseActivity() {
     var liveData: MutableLiveData<String>? = null
 
@@ -32,7 +31,7 @@ class MainActivity : BaseActivity() {
     //        super.onCreate(savedInstanceState);
     //        setContentView(R.layout.activity_main);
     //
-    //        Log.e("TAG", "is_application =" + is_application);
+    //        TLog.e("TAG", "is_application =" + is_application);
     //
     //        liveData = new MutableLiveData<>();
     ////        liveData.setValue("testData_setValue"); //
@@ -52,7 +51,7 @@ class MainActivity : BaseActivity() {
     //        liveData.observe(MainActivity.this, new Observer<String>() {
     //            @Override
     //            public void onChanged(String content) {
-    //                Log.e("TAG", "onChanged content = " + content + " ThreadName = " + Thread.currentThread().getName());
+    //                TLog.e("TAG", "onChanged content = " + content + " ThreadName = " + Thread.currentThread().getName());
     //
     //                //在主线程中 setValue() 和 postValue() 打印结果是一样的 :
     //                //onChanged content = testData_setValue ThreadName = main
@@ -71,14 +70,14 @@ class MainActivity : BaseActivity() {
     //        super.onCreate(savedInstanceState);
     //        setContentView(R.layout.activity_main);
     //
-    //        Log.e("TAG", "is_application =" + is_application);
+    //        TLog.e("TAG", "is_application =" + is_application);
     //
     ////        liveData = new MutableLiveData<>();
     //        liveData = LiveDataBus.getInstance().with("app",String.class);
     //        liveData.observe(MainActivity.this, new Observer<String>() {
     //            @Override
     //            public void onChanged(String content) {
-    //                Log.e("TAG", "Observer1 onChanged content = " + content + " ThreadName = " + Thread.currentThread().getName());
+    //                TLog.e("TAG", "Observer1 onChanged content = " + content + " ThreadName = " + Thread.currentThread().getName());
     //                //Observer1 onChanged content = testData2_postValue ThreadName = main
     //            }
     //        });
@@ -86,7 +85,7 @@ class MainActivity : BaseActivity() {
     //        liveData.observe(MainActivity.this, new Observer<String>() {
     //            @Override
     //            public void onChanged(String content) {
-    //                Log.e("TAG", "Observer2 onChanged content = " + content + " ThreadName = " + Thread.currentThread().getName());
+    //                TLog.e("TAG", "Observer2 onChanged content = " + content + " ThreadName = " + Thread.currentThread().getName());
     //                //Observer2 onChanged content = testData2_postValue ThreadName = main
     //            }
     //        });
@@ -105,7 +104,7 @@ class MainActivity : BaseActivity() {
     //
     //        @Override
     //        public void onStateChanged(@NonNull LifecycleOwner source, @NonNull Lifecycle.Event event) {
-    //            Log.e("TAG", "MyObserver onStateChanged " + event.name());
+    //            TLog.e("TAG", "MyObserver onStateChanged " + event.name());
     //
     //            //MyObserver onStateChanged ON_CREATE
     //            //MyObserver onStateChanged ON_START
@@ -116,7 +115,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.e("TAG", "is_application =${BaseApplication.is_application}")
+        TLog.e("TAG", "is_application =${BaseApplication.is_application}")
 
 //        liveData = new MutableLiveData<>();
         liveData = LiveDataBus.instance.with("app", String::class.java)

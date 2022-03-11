@@ -1,16 +1,20 @@
 package com.toys.login
 
 import com.toys.base.BaseActivity
-import com.toys.common.LiveDataBus.BusMutableLiveData
+import com.toys.common.data.livedata.LiveDataBus.BusMutableLiveData
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.lifecycle.Observer
-import com.toys.common.Constants
-import com.toys.login.R
-import com.toys.common.LiveDataBus
-import com.zyz.annotation.BindPath
+import com.toys.common.bean.User
+import com.toys.common.data.constant.Constants
+import com.toys.common.data.livedata.LiveDataBus
+import com.toys.common.utils.TLog
+import com.zyz.annotation.Autowired
+import com.zyz.annotation.Route
 import com.zyz.xrouter.XRouter
+import com.zyz.xrouter.XRouterKnife
 
 /**
  * <pre>
@@ -21,18 +25,33 @@ import com.zyz.xrouter.XRouter
  * version: 1.0
 </pre> *
  */
-@BindPath(key = Constants.RouterPath.LOGIN)
+@Route(key = Constants.RouterPath.LOGIN)
 class LoginActivity : BaseActivity() {
+
+    @Autowired("age")
+    var age: Int? = null
+    @Autowired(value = "username")
+    var userNameStr: String? = null
+    @Autowired(value = "user")
+    var userObj: User? = null
+
     private var appLiveDataObj: BusMutableLiveData<String>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        XRouterKnife.bind(this, Constants.JSON_TRANS_IMP)
+
+        "LoginActivity age = $age userNameStr = $userNameStr userObj = $userObj".let{
+            TLog.e(TAG,it)
+            findViewById<TextView>(R.id.tv_receive_msg).text = it
+        }
+
         appLiveDataObj = LiveDataBus.instance.with("app", String::class.java)
 
         //模拟 intent，MainActivity 中发送 value，LoginActivity 中接收 value
         appLiveDataObj?.observe(this@LoginActivity, true, Observer { content ->
-            Log.e(
+            TLog.e(
                 "TAG",
                 "LoginActivity Observer onChanged content = " + content + " ThreadName = " + Thread.currentThread().name
             )

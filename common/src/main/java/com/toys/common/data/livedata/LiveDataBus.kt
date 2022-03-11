@@ -1,12 +1,10 @@
-package com.toys.common
+package com.toys.common.data.livedata
 
-import com.toys.common.LiveDataBus.BusMutableLiveData
 import kotlin.jvm.Synchronized
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import com.toys.common.LiveDataBus
 import java.lang.Exception
 import java.lang.NullPointerException
 import java.util.HashMap

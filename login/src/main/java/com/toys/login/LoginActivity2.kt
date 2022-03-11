@@ -1,11 +1,11 @@
 package com.toys.login
 
-import com.zyz.annotation.BindPath
 import com.toys.base.BaseActivity
 import android.os.Bundle
 import com.toys.login.R
 import android.content.Intent
 import com.toys.base.BaseApplication
+import com.zyz.annotation.Route
 import com.zyz.xrouter.XRouter
 //import login.LoginApplication
 
@@ -18,7 +18,7 @@ import com.zyz.xrouter.XRouter
  * version: 1.0
 </pre> *
  */
-@BindPath(key = "login2/login2")
+@Route(key = "login2/login2")
 class LoginActivity2 : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
