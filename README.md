@@ -47,3 +47,18 @@ class LoginActivity : BaseActivity() {
     }  
 }
 ```
+
+```java
+class IJsonTransferImp : IJsonTransfer {
+    override fun transJson2Obj(json: String?, clazz: Class<*>): Any? {
+        return when(clazz){
+            User::class.java -> {
+                Constants.GSON.fromJson<User>(json, clazz)
+            }
+            else -> {
+                null
+            }
+        }
+    }
+}
+```
