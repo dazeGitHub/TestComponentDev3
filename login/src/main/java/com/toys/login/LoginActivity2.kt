@@ -4,10 +4,9 @@ import com.toys.base.BaseActivity
 import android.os.Bundle
 import com.toys.login.R
 import android.content.Intent
-import com.alibaba.android.arouter.facade.annotation.Route
 import com.toys.base.BaseApplication
-//import com.zyz.annotation.Route
-//import com.zyz.xrouter.XRouter
+import com.zyz.annotation.Route
+import com.zyz.xrouter.XRouter
 //import login.LoginApplication
 
 /**
@@ -19,7 +18,7 @@ import com.toys.base.BaseApplication
  * version: 1.0
 </pre> *
  */
-@Route(path = "login2/login2")
+@Route(key = "login2/login2")
 class LoginActivity2 : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,9 +28,9 @@ class LoginActivity2 : BaseActivity() {
 //            LoginApplication.mTestVar     //这么干不行, 如果 login 模块不是 Application 的状态时, 就会找不到 LoginApplication 这个类
         }
 
-//        val member: Class<*>? = XRouter.getInstance().getActivity("member/member")
-//        if (member != null) {
-//            startActivity(Intent(this, member))
-//        }
+        val member: Class<*>? = XRouter.getInstance().getActivity("member/member")
+        if (member != null) {
+            startActivity(Intent(this, member))
+        }
     }
 }

@@ -3,20 +3,18 @@ package com.toys.login
 import com.toys.base.BaseActivity
 import com.toys.common.data.livedata.LiveDataBus.BusMutableLiveData
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.Observer
-import com.alibaba.android.arouter.facade.annotation.Autowired
-import com.alibaba.android.arouter.facade.annotation.Route
-import com.alibaba.android.arouter.launcher.ARouter
 import com.toys.common.bean.User
 import com.toys.common.data.constant.Constants
 import com.toys.common.data.livedata.LiveDataBus
 import com.toys.common.utils.TLog
-//import com.zyz.annotation.Autowired
-//import com.zyz.annotation.Route
-//import com.zyz.xrouter.XRouter
-//import com.zyz.xrouter.XRouterKnife
+import com.zyz.annotation.Autowired
+import com.zyz.annotation.Route
+import com.zyz.xrouter.XRouter
+import com.zyz.xrouter.XRouterKnife
 
 /**
  * <pre>
@@ -27,14 +25,14 @@ import com.toys.common.utils.TLog
  * version: 1.0
 </pre> *
  */
-@Route(path = Constants.RouterPath.LOGIN_TEST_PATH_NO_PARAM)
+@Route(key = Constants.RouterPath.LOGIN)
 class LoginActivity : BaseActivity() {
 
-    @Autowired(name = "age")
+    @Autowired("age")
     var age: Int? = null
-    @Autowired(name = "username")
+    @Autowired(value = "username")
     var userNameStr: String? = null
-    @Autowired(name = "user")
+    @Autowired(value = "user")
     var userObj: User? = null
 
     private var appLiveDataObj: BusMutableLiveData<String>? = null
@@ -42,7 +40,7 @@ class LoginActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        //XRouterKnife.bind(this, Constants.JSON_TRANS_IMP)
+        XRouterKnife.bind(this, Constants.JSON_TRANS_IMP)
 
         "LoginActivity age = $age userNameStr = $userNameStr userObj = $userObj".let{
             TLog.e(TAG,it)
@@ -74,9 +72,6 @@ class LoginActivity : BaseActivity() {
 //        appLiveDataObj!!.postValue("Post Event From LoginActivity2")
 //        appLiveDataObj!!.postValue("Post Event From LoginActivity3")
 
-        //XRouter.getInstance().jumpActivity(this, Constants.RouterPath.MEMBER_TEST_PATH)
-        ARouter.getInstance()
-            .build(Constants.RouterPath.MEMBER_TEST_PATH)
-            .navigation()
+        XRouter.getInstance().jumpActivity(this, Constants.RouterPath.MEMBER_TEST_PATH)
     }
 }

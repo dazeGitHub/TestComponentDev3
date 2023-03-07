@@ -1,20 +1,16 @@
 package com.toys.testcomponentdev3
 
-import android.os.Bundle
-import android.view.View
-import androidx.lifecycle.MutableLiveData
-import com.alibaba.android.arouter.facade.annotation.Route
-import com.alibaba.android.arouter.launcher.ARouter
 import com.toys.base.BaseActivity
+import androidx.lifecycle.MutableLiveData
+import android.os.Bundle
+import android.util.Log
+import android.view.View
 import com.toys.base.BaseApplication
-import com.toys.common.bean.User
 import com.toys.common.data.constant.Constants
 import com.toys.common.data.livedata.LiveDataBus
 import com.toys.common.utils.TLog
-
-
-//import com.zyz.annotation.Route
-//import com.zyz.xrouter.XRouter
+import com.zyz.annotation.Route
+import com.zyz.xrouter.XRouter
 
 /**
  * <pre>
@@ -25,7 +21,7 @@ import com.toys.common.utils.TLog
  * version: 1.0
 </pre> *
  */
-@Route(path = Constants.RouterPath.MAIN)
+@Route(key = Constants.RouterPath.MAIN)
 class MainActivity : BaseActivity() {
     var liveData: MutableLiveData<String>? = null
 
@@ -99,14 +95,7 @@ class MainActivity : BaseActivity() {
     fun jumpLoginActivity(view: View?) {
 //        liveData.postValue("testData2_postValue");
 //        startActivity(Intent(this, XRouter.getInstance().getActivity("login/login")))
-//        XRouter.getInstance().jumpActivity(this,  url = Constants.RouterPath.LOGIN_TEST_PATH,scheme = null)
-
-        ARouter.getInstance()
-            .build(Constants.RouterPath.LOGIN_TEST_PATH_NO_PARAM)
-//            .withLong("age", 25)
-//            .withString("username", "zhangsan")
-//            .withObject("user", User("lisi", 30))
-            .navigation()
+        XRouter.getInstance().jumpActivity(this,  url = Constants.RouterPath.LOGIN_TEST_PATH,scheme = null)
     }
 
     //该 GenericLifecycleObserver 接口可以在 Activity 生命周期发生变化时回调

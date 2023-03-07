@@ -1,8 +1,8 @@
 package com.toys.utils
 
 import com.toys.login.LoginActivity
-//import com.zyz.xrouter.IRouter
-//import com.zyz.xrouter.XRouter
+import com.zyz.xrouter.IRouter
+import com.zyz.xrouter.XRouter
 
 /**
  * <pre>
@@ -13,9 +13,9 @@ import com.toys.login.LoginActivity
  * version: 1.0
 </pre> *
  */
-//class ActivityUtil : IRouter {
-//    override fun addActivity() {
-//        //大公司的 key 命名是有规范的
-//        XRouter.getInstance().addActivity("login/login", LoginActivity::class.java)
-//    }
-//}
+class ActivityUtil : IRouter {
+    override fun addActivity() {
+        //大公司的 key 命名是有规范的
+        XRouter.getInstance().addActivity("login/login", LoginActivity::class.java)
+    }
+}

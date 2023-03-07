@@ -56,10 +56,7 @@ dependencies {
         implementation project(it)
     }
 
-//    annotationProcessor 'com.github.dazeGitHub.XRouter:annotation_compiler:5.0.5'
-//    kapt 'com.github.dazeGitHub.XRouter:annotation_compiler:5.0.5'
-
-    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
-    implementation 'com.alibaba:arouter-api:1.4.1'
+    annotationProcessor 'com.github.dazeGitHub.XRouter:annotation_compiler:5.0.5'
+    kapt 'com.github.dazeGitHub.XRouter:annotation_compiler:5.0.5'
 }
 
