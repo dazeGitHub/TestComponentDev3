@@ -42,6 +42,10 @@ class LoginActivity : BaseActivity() {
         setContentView(R.layout.activity_login)
         XRouterKnife.bind(this, Constants.JSON_TRANS_IMP)
 
+        userObj?.let{
+
+        }
+
         "LoginActivity age = $age userNameStr = $userNameStr userObj = $userObj".let{
             TLog.e(TAG,it)
             findViewById<TextView>(R.id.tv_receive_msg).text = it
